@@ -1,4 +1,4 @@
-package com.example.compose.navigation
+package com.example.compose.nestednavigation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -10,11 +10,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import com.example.compose.navigation.nav_graph.Screen
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun SettingsScreen(
+fun SignUpScreen(
     navController: NavController
 ) {
     Box(
@@ -23,15 +24,20 @@ fun SettingsScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(
-//                    route = "optional_screen?id={id}"
-                    route = Screen.Optional.passId(2)
-                )
+                navController.popBackStack()
             },
-            text = "Settings",
-            color = Color.Cyan,
+            text = "Sign Up",
+            color = Color.Green,
             fontSize = MaterialTheme.typography.headlineMedium.fontSize,
             fontWeight = FontWeight.Bold
         )
     }
+}
+
+@Composable
+@Preview(showSystemUi = true)
+fun SignUpPreview(){
+    SignUpScreen(
+        navController = rememberNavController()
+    )
 }

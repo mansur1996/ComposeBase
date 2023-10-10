@@ -1,19 +1,25 @@
-package com.example.compose.navigation
+package com.example.compose.navigation.nav_graph
 
 import android.util.Log
-import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.navArgument
+import com.example.compose.navigation.DetailScreen
+import com.example.compose.navigation.HomeScreen
+import com.example.compose.navigation.OptionalScreen
+import com.example.compose.navigation.OptionalScreen2
+import com.example.compose.navigation.SettingsScreen
 
-@Composable
-fun SetUpNavGraph(navHostController: NavHostController) {
-    NavHost(
-        navController = navHostController,
+fun NavGraphBuilder.homeNavGraph(
+    navHostController: NavHostController
+) {
+    navigation(
         startDestination = Screen.Home.route,
-    ) {
+        route = HOME_ROUTE
+    ){
         composable(
             route = Screen.Home.route
         ) {
@@ -48,19 +54,19 @@ fun SetUpNavGraph(navHostController: NavHostController) {
         composable(
             route = Screen.Optional.route,
             arguments = listOf(
-                navArgument(ARGUMENT_KEY_ID){
+                navArgument(ARGUMENT_KEY_ID) {
                     type = NavType.IntType
                     defaultValue = 0
                 }
             )
-        ){
+        ) {
             Log.e("TAG", "OptionalArgs: ${it.arguments?.getInt(ARGUMENT_KEY_ID)}")
             OptionalScreen(navController = navHostController)
         }
         composable(
             route = Screen.Optional2.route,
             arguments = listOf(
-                navArgument(ARGUMENT_KEY_ID){
+                navArgument(ARGUMENT_KEY_ID) {
                     type = NavType.IntType
                     defaultValue = 0
                 },
@@ -68,7 +74,7 @@ fun SetUpNavGraph(navHostController: NavHostController) {
                     type = NavType.StringType
                 }
             )
-        ){
+        ) {
             Log.e("TAG", "Optional2Args: ${it.arguments?.getInt(ARGUMENT_KEY_ID)}")
             Log.e("TAG", "Optional2Args: ${it.arguments?.getString(ARGUMENT_KEY_NAME)}")
             OptionalScreen2(navController = navHostController)
