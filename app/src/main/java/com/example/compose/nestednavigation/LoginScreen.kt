@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.navigation.nav_graph.HOME_ROUTE
-import com.example.compose.navigation.nav_graph.Screen
+import com.example.compose.navigation.nav_graph.NavigationScreen
 
 @Composable
 fun LogInScreen(
@@ -30,7 +30,7 @@ fun LogInScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen.SignUp.route)
+                navController.navigate(route = NavigationScreen.SignUp.route)
             },
             text = "Login",
             color = Color.Magenta,

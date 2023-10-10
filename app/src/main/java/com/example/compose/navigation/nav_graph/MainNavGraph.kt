@@ -17,16 +17,16 @@ fun NavGraphBuilder.homeNavGraph(
     navHostController: NavHostController
 ) {
     navigation(
-        startDestination = Screen.Home.route,
+        startDestination = NavigationScreen.Home.route,
         route = HOME_ROUTE
     ){
         composable(
-            route = Screen.Home.route
+            route = NavigationScreen.Home.route
         ) {
             HomeScreen(navController = navHostController)
         }
         composable(
-            route = Screen.Detail.route,
+            route = NavigationScreen.Detail.route,
             arguments = listOf(
                 navArgument(ARGUMENT_KEY_ID) {
                     type = NavType.IntType
@@ -37,7 +37,7 @@ fun NavGraphBuilder.homeNavGraph(
             DetailScreen(navController = navHostController)
         }
         composable(
-            route = Screen.Settings.route,
+            route = NavigationScreen.Settings.route,
             arguments = listOf(
                 navArgument(ARGUMENT_KEY_ID) {
                     type = NavType.IntType
@@ -52,7 +52,7 @@ fun NavGraphBuilder.homeNavGraph(
             SettingsScreen(navController = navHostController)
         }
         composable(
-            route = Screen.Optional.route,
+            route = NavigationScreen.Optional.route,
             arguments = listOf(
                 navArgument(ARGUMENT_KEY_ID) {
                     type = NavType.IntType
@@ -64,7 +64,7 @@ fun NavGraphBuilder.homeNavGraph(
             OptionalScreen(navController = navHostController)
         }
         composable(
-            route = Screen.Optional2.route,
+            route = NavigationScreen.Optional2.route,
             arguments = listOf(
                 navArgument(ARGUMENT_KEY_ID) {
                     type = NavType.IntType

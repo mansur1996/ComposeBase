@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.navigation.nav_graph.AUTHENTICATION_ROUTE
-import com.example.compose.navigation.nav_graph.Screen
+import com.example.compose.navigation.nav_graph.NavigationScreen
 
 @Composable
 fun HomeScreen(
@@ -29,7 +29,7 @@ fun HomeScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen.Detail.passId(1))
+                navController.navigate(route = NavigationScreen.Detail.passId(1))
             },
             text = "Home",
             color = MaterialTheme.colorScheme.primary,

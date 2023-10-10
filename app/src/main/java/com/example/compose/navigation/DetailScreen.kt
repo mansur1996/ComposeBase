@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.navigation.nav_graph.Screen
+import com.example.compose.navigation.nav_graph.NavigationScreen
 
 @Composable
 fun DetailScreen(
@@ -25,7 +25,7 @@ fun DetailScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-                navController.navigate(route = Screen.Settings.passIdAndName(1, "Mansur"))
+                navController.navigate(route = NavigationScreen.Settings.passIdAndName(1, "Mansur"))
 //                navController.popBackStack()
 
 //                navController.navigate(Screen.Home.route) {

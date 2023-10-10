@@ -12,15 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.compose.navigation.nav_graph.SetUpNavGraph
+import com.example.compose.bottomnavigation.MainScreenB
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity : ComponentActivity() {
-
-    lateinit var navHostController: NavHostController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -35,8 +30,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        navHostController = rememberNavController()
-                        SetUpNavGraph(navHostController = navHostController)
+                        MainScreenB()
                     }
                 }
             }
